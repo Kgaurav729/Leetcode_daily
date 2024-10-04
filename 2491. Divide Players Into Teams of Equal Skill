@@ -38,6 +38,8 @@ skill.length is even.
 
 class Solution:
     def dividePlayers(self, skill: List[int]) -> int:
+
+        # 1st approach 
         n=len(skill)
         skill.sort()
         tempsum=skill[0]+skill[n-1]
@@ -50,3 +52,28 @@ class Solution:
                 return -1
             i=i+1
         return ans
+
+        #2nd approach 
+
+        # dict={}
+        # sum=0
+        # for ele in skill:
+        #     dict[ele]=dict.get(ele, 0) + 1
+        #     sum=sum+ele
+        # if sum%(len(skill)/2)!=0:
+        #     return -1
+        # target=sum/(len(skill)/2)
+
+        # ans=0
+        # for ele in skill:
+        #     if(dict[ele]==0):
+        #         continue
+        #     dict[ele]-=1
+        #     partner=target-ele
+        #     if partner not in dict or dict[partner]==0:
+        #         return -1
+
+        #     ans+=ele*partner
+        #     dict[partner]-=1
+        
+        # return int(ans)
