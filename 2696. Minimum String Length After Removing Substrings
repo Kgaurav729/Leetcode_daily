@@ -40,3 +40,21 @@ class Solution:
             elif 'CD' in s:
                 s = s.replace('CD', '')
         return len(s)
+
+
+optimized solution :
+stack=[]
+for char in s:
+    if char=='B' and len(stack)!=0:
+        top=stack.pop()
+        if top!='A':
+            stack.append(top)
+            stack.append(char)
+    elif char=='D' and len(stack)!=0:
+        top=stack.pop()
+        if top!='C':
+            stack.append(top)
+            stack.append(char)
+    else:
+        stack.append(char)
+return len(stack)
